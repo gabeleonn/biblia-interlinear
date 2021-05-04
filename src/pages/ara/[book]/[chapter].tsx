@@ -1,9 +1,34 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 
-const ChapterPage: React.FC = () => (
+import ChapterWrapper from '../../../components/molecules/ChapterWrapper';
+
+export type Word = {
+  word: string;
+  strongs: string[];
+};
+
+export type Verse = {
+  verse: number;
+  text: Word[];
+};
+
+export type Chapter = {
+  data: {
+    version: string;
+    // eslint-disable-next-line camelcase
+    short_version: string;
+    copyright: string;
+    book: string;
+    chapter: number;
+    chapters: number;
+    verses: Verse[];
+  };
+};
+
+const ChapterPage: React.FC<Chapter> = ({ data }) => (
   <>
-    <h1>Test</h1>
+    <ChapterWrapper data={data} />
   </>
 );
 

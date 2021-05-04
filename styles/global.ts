@@ -10,7 +10,8 @@ export default createGlobalStyle`
   }
 
   body, input, button {
-    font-family: sans-serif;
+    font-family: ${props => props.theme.fontFamily.normal};
+    color: ${props => props.theme.colors.grey[900]}
   }
 
   button {
