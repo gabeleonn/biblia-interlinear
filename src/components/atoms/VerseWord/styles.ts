@@ -6,6 +6,7 @@ export const Container = styled.button`
   margin-right: 5px;
 
   background: transparent;
+  position: relative;
 
   &:hover {
     background: ${props => props.theme.colors.grey[100]};

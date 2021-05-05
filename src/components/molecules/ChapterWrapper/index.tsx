@@ -6,7 +6,7 @@ import { Copyright } from '../../atoms/Copyright';
 import { Container } from './styles';
 
 import { Chapter } from '../../../pages/ara/[book]/[chapter]';
-import VerseList from '../VerseList';
+import VerseList from '../../organisms/VerseList';
 import ChapterControl from '../ChapterControl';
 
 const ChapterWrapper: React.FC<Chapter> = ({ data }) => (

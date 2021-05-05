@@ -1,15 +1,17 @@
 import React from 'react';
+import { Word } from '../../../context/useChapter';
 
 import { Container } from './styles';
 
-import { Word } from '../../../pages/ara/[book]/[chapter]';
-
 type VerseWordProps = {
   word: Word;
+  toggleModal(strongs: string[]): void;
 };
 
-const VerseWord: React.FC<VerseWordProps> = ({ word }) => (
-  <Container onClick={() => console.log(word.strongs)}>{word.word}</Container>
+const VerseWord: React.FC<VerseWordProps> = ({ word, toggleModal }) => (
+  <>
+    <Container onClick={() => toggleModal(word.strongs)}>{word.word}</Container>
+  </>
 );
 
 export default VerseWord;

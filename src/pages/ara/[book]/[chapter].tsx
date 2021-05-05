@@ -1,65 +1,25 @@
-import React from 'react';
-import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 import ChapterWrapper from '../../../components/molecules/ChapterWrapper';
+import { useChapter } from '../../../context/useChapter';
 
-export type Word = {
-  word: string;
-  strongs: string[];
-};
+const ChapterPage: React.FC = () => {
+  const router = useRouter();
+  const [book, chapter] = router.asPath.replace('/ara/', '').split('/');
+  const { data, getData } = useChapter();
 
-export type Verse = {
-  verse: number;
-  text: Word[];
-};
+  useEffect(() => {
+    if (book !== '[book]' && chapter !== '[chapter]') {
+      getData(book, chapter);
+    }
+  }, [book, chapter, getData]);
 
-export type Chapter = {
-  data: {
-    version: string;
-    shortVersion: string;
-    copyright: string;
-    book: string;
-    bookLink: string;
-    chapter: number;
-    chapters: number;
-    verses: Verse[];
-  };
-};
-
-const ChapterPage: React.FC<Chapter> = ({ data }) => (
-  <>
-    <ChapterWrapper data={data} />
-  </>
-);
-
-export const getStaticProps: GetStaticProps = async (
-  ctx: GetStaticPropsContext,
-) => {
-  const res = await fetch(
-    `http://localhost:8000/ara/${ctx.params.book}/${ctx.params.chapter}`,
+  return (
+    <>
+      <ChapterWrapper data={data} />
+    </>
   );
-  const data = await res.json();
-
-  return {
-    props: {
-      data,
-    },
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch('http://localhost:8000/paths');
-  const posts = await res.json();
-
-  return {
-    paths: posts.map(post => ({
-      params: {
-        book: post.book.toString(),
-        chapter: post.chapter.toString(),
-      },
-    })),
-    fallback: true,
-  };
 };
 
 export default ChapterPage;

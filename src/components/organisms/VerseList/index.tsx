@@ -4,7 +4,7 @@ import { Container, Verse } from './styles';
 
 import { Verse as VerseType } from '../../../pages/ara/[book]/[chapter]';
 import VerseNumber from '../../atoms/VerseNumber';
-import VerseText from '../VerseText';
+import VerseText from '../../molecules/VerseText';
 import { generateKey } from '../../../services';
 
 type VerseListProps = {
