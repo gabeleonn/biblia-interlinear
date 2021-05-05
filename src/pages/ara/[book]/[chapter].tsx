@@ -16,10 +16,10 @@ export type Verse = {
 export type Chapter = {
   data: {
     version: string;
-    // eslint-disable-next-line camelcase
-    short_version: string;
+    shortVersion: string;
     copyright: string;
     book: string;
+    bookLink: string;
     chapter: number;
     chapters: number;
     verses: Verse[];
