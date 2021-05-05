@@ -22,8 +22,16 @@ export const Container = styled.a<ContainerProps>`
     props.action === 'next'
       ? css`
           right: 10%;
+
+          @media (max-width: 960px) {
+            right: 2%;
+          }
         `
       : css`
           left: 10%;
+
+          @media (max-width: 960px) {
+            left: 2%;
+          }
         `}
 `;

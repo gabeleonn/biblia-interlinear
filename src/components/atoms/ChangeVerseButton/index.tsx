@@ -12,8 +12,8 @@ type ChangeVerseButtonProps = {
 };
 
 const icons = {
-  next: <MdKeyboardArrowRight size={32} />,
-  previous: <MdKeyboardArrowLeft size={32} />,
+  next: <MdKeyboardArrowRight size={24} />,
+  previous: <MdKeyboardArrowLeft size={24} />,
 };
 
 const ChangeVerseButton: React.FC<ChangeVerseButtonProps> = ({
