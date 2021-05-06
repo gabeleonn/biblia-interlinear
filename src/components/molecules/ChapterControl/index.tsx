@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { Chapter } from '../../../pages/ara/[book]/[chapter]';
-
 import ChangeVerseButton from '../../atoms/ChangeVerseButton';
+import { Chapter } from '../../../context/useChapter';
 
 const ChapterControl: React.FC<Chapter> = ({ data }) => (
   <>

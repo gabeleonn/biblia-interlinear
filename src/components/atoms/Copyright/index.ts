@@ -6,4 +6,8 @@ export const Copyright = styled.footer`
   text-align: center;
 
   margin-top: 30px;
+
+  @media (max-width: 1100px) {
+    margin-bottom: 50px;
+  }
 `;

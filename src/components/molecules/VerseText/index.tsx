@@ -5,7 +5,7 @@ import { Container } from './styles';
 import VerseWord from '../../atoms/VerseWord';
 import { generateKey } from '../../../services';
 
-import { useStrongModal } from '../../../context/useStrongsModal';
+import { useStrongs } from '../../../context/useStrongs';
 import { Word } from '../../../context/useChapter';
 
 type VerseTextProps = {
@@ -13,17 +13,13 @@ type VerseTextProps = {
 };
 
 const VerseText: React.FC<VerseTextProps> = ({ words }) => {
-  const { toggleModal } = useStrongModal();
+  const { setStrongs } = useStrongs();
 
   return (
     <Container>
       {words &&
         words.map(word => (
-          <VerseWord
-            key={generateKey()}
-            toggleModal={toggleModal}
-            word={word}
-          />
+          <VerseWord key={generateKey()} setStrongs={setStrongs} word={word} />
         ))}
     </Container>
   );

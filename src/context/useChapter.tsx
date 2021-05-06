@@ -1,4 +1,4 @@
-import React, { useContext, createContext, useState } from 'react';
+import React, { useContext, createContext, useState, useCallback } from 'react';
 
 export type Word = {
   word: string;
@@ -23,8 +23,19 @@ export type Chapter = {
   };
 };
 
+export type ChapterData = {
+  version: string;
+  shortVersion: string;
+  copyright: string;
+  book: string;
+  bookLink: string;
+  chapter: number;
+  chapters: number;
+  verses: Verse[];
+};
+
 type ChapterContextProps = {
-  data: Chapter;
+  data: ChapterData;
   getData(book: string, chapter: string): Promise<void>;
 };
 
@@ -33,13 +44,16 @@ const ChapterContext = createContext<ChapterContextProps>(
 );
 
 const ChapterProvider: React.FC = ({ children }) => {
-  const [data, setData] = useState<Chapter>();
+  const [data, setData] = useState<ChapterData>();
 
-  const getData = async (book: string, chapter: string): Promise<void> => {
-    const res = await fetch(`http://localhost:8000/ara/${book}/${chapter}`);
-    const json = await res.json();
-    setData(json);
-  };
+  const getData = useCallback(
+    async (book: string, chapter: string): Promise<void> => {
+      const res = await fetch(`http://localhost:8000/ara/${book}/${chapter}`);
+      const json = await res.json();
+      setData(json);
+    },
+    [setData],
+  );
 
   return (
     <ChapterContext.Provider value={{ data, getData }}>

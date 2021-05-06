@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import ChapterWrapper from '../../../components/molecules/ChapterWrapper';
 import { useChapter } from '../../../context/useChapter';
+import ChapterWrapper from '../../../components/organisms/ChapterWrapper';
 
 const ChapterPage: React.FC = () => {
   const router = useRouter();

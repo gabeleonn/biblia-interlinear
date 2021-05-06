@@ -9,7 +9,7 @@ export const Container = styled.a<ContainerProps>`
   align-items: center;
   justify-content: center;
 
-  padding: 10px;
+  padding: 8px;
   border-radius: 100px;
 
   background: ${props => props.theme.colors.grey[900]};
@@ -17,21 +17,29 @@ export const Container = styled.a<ContainerProps>`
 
   position: fixed;
   z-index: 10;
-  top: 70%;
+  top: 60%;
   ${props =>
     props.action === 'next'
       ? css`
-          right: 10%;
+          right: 35%;
 
-          @media (max-width: 960px) {
-            right: 2%;
+          @media (max-width: 1100px) {
+            right: 10%;
+          }
+
+          @media (max-width: 900px) {
+            right: 3%;
           }
         `
       : css`
-          left: 10%;
+          left: 3.5%;
 
-          @media (max-width: 960px) {
-            left: 2%;
+          @media (max-width: 1100px) {
+            left: 10%;
+          }
+
+          @media (max-width: 900px) {
+            left: 3%;
           }
         `}
 `;

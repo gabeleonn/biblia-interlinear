@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.button`
   font-family: ${props => props.theme.fontFamily.text};
-  font-size: ${props => props.theme.fontSize.big};
+  font-size: ${props => props.theme.fontSize.normal};
   margin-right: 5px;
 
   background: transparent;

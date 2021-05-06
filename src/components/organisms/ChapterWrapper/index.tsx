@@ -3,14 +3,16 @@ import React from 'react';
 import Head from 'next/head';
 import ChapterTitle from '../../atoms/ChapterTitle';
 import { Copyright } from '../../atoms/Copyright';
-import { Container } from './styles';
+import { Container, Wrapper } from './styles';
 
-import { Chapter } from '../../../pages/ara/[book]/[chapter]';
-import VerseList from '../../organisms/VerseList';
-import ChapterControl from '../ChapterControl';
+import VerseList from '../VerseList';
+import ChapterControl from '../../molecules/ChapterControl';
+import StrongAside from '../../atoms/StrongAside';
+import ChaptersAside from '../../atoms/ChaptersAside';
+import { Chapter } from '../../../context/useChapter';
 
 const ChapterWrapper: React.FC<Chapter> = ({ data }) => (
-  <>
+  <Wrapper>
     <Container>
       {data && (
         <>
@@ -28,7 +30,11 @@ const ChapterWrapper: React.FC<Chapter> = ({ data }) => (
         </>
       )}
     </Container>
-  </>
+    <aside>
+      <StrongAside />
+      <ChaptersAside />
+    </aside>
+  </Wrapper>
 );
 
 export default ChapterWrapper;

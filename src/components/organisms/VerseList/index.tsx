@@ -2,10 +2,10 @@ import React from 'react';
 
 import { Container, Verse } from './styles';
 
-import { Verse as VerseType } from '../../../pages/ara/[book]/[chapter]';
 import VerseNumber from '../../atoms/VerseNumber';
 import VerseText from '../../molecules/VerseText';
 import { generateKey } from '../../../services';
+import { Verse as VerseType } from '../../../context/useChapter';
 
 type VerseListProps = {
   verses: VerseType[];

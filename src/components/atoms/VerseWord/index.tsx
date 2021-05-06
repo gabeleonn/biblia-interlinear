@@ -5,12 +5,16 @@ import { Container } from './styles';
 
 type VerseWordProps = {
   word: Word;
-  toggleModal(strongs: string[]): void;
+  setStrongs(strongs: string[]): void;
 };
 
-const VerseWord: React.FC<VerseWordProps> = ({ word, toggleModal }) => (
+const VerseWord: React.FC<VerseWordProps> = ({ word, setStrongs }) => (
   <>
-    <Container onClick={() => toggleModal(word.strongs)}>{word.word}</Container>
+    {word && (
+      <Container onClick={() => setStrongs(word.strongs)}>
+        {word.word}
+      </Container>
+    )}
   </>
 );
 
