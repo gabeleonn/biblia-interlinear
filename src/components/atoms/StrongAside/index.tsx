@@ -1,20 +1,16 @@
 import React from 'react';
-import { useStrongs } from '../../../context/useStrongs';
-import { generateKey } from '../../../services';
-import { BoxTitle } from '../BoxTitle';
+import parse from 'html-react-parser';
 
+import { useStrongs } from '../../../context/useStrongs';
+import { BoxTitle } from '../BoxTitle';
 import { Container } from './styles';
 
 const StrongAside: React.FC = () => {
-  const { strongs } = useStrongs();
+  const { info } = useStrongs();
   return (
     <Container>
       <BoxTitle>Strong</BoxTitle>
-      {strongs ? (
-        strongs.map(strong => <p key={generateKey()}>{strong} </p>)
-      ) : (
-        <p>Nenhuma palavra selecionada</p>
-      )}
+      {info ? parse(info.definition) : <p>Nenhuma palavra selecionada</p>}
     </Container>
   );
 };

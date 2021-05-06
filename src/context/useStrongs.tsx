@@ -1,17 +1,40 @@
-import React, { useContext, createContext, useState, useCallback } from 'react';
+import React, {
+  useContext,
+  createContext,
+  useState,
+  useCallback,
+  useEffect,
+} from 'react';
 
 type StrongsModalProps = {
-  setStrongs(strongsArray: string[]): void;
-  strongs: string[];
+  setStrongs(strongsArray: string[]): Promise<void>;
+  info: Strong;
+};
+
+type Strong = {
+  definition: string;
 };
 
 const StrongsModal = createContext<StrongsModalProps>({} as StrongsModalProps);
 
 const StrongProvider: React.FC = ({ children }) => {
   const [strongs, setData] = useState<string[]>();
+  const [info, setInfo] = useState<Strong>();
+
+  useEffect(() => {
+    const getInfo = async (): Promise<void> => {
+      if (strongs) {
+        const res = await fetch(`http://localhost:8000/strong/${strongs[0]}`);
+        const data = await res.json();
+        setInfo(data);
+      }
+    };
+
+    getInfo();
+  }, [strongs]);
 
   const setStrongs = useCallback(
-    (strongsArray: string[]): void => {
+    async (strongsArray: string[]): Promise<void> => {
       if (strongsArray.length >= 1) {
         setData(strongsArray);
       }
@@ -20,7 +43,7 @@ const StrongProvider: React.FC = ({ children }) => {
   );
 
   return (
-    <StrongsModal.Provider value={{ setStrongs, strongs }}>
+    <StrongsModal.Provider value={{ setStrongs, info }}>
       {children}
     </StrongsModal.Provider>
   );

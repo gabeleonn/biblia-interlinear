@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '../Header/styles';
 
-const Footer: React.FC = () => <Container>Footer</Container>;
+const Footer: React.FC = () => <Container />;
 
 export default Footer;
