@@ -48,7 +48,9 @@ const ChapterProvider: React.FC = ({ children }) => {
 
   const getData = useCallback(
     async (book: string, chapter: string): Promise<void> => {
-      const res = await fetch(`http://localhost:8000/ara/${book}/${chapter}`);
+      const res = await fetch(
+        `https://biblia-interlinear.herokuapp.com/ara/${book}/${chapter}`,
+      );
       const json = await res.json();
       setData(json);
     },

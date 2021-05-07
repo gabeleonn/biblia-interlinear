@@ -24,7 +24,9 @@ const StrongProvider: React.FC = ({ children }) => {
   useEffect(() => {
     const getInfo = async (): Promise<void> => {
       if (strongs) {
-        const res = await fetch(`http://localhost:8000/strong/${strongs[0]}`);
+        const res = await fetch(
+          `https://biblia-interlinear.herokuapp.com/strong/${strongs[0]}`,
+        );
         const data = await res.json();
         setInfo(data);
       }
