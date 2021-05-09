@@ -16,7 +16,7 @@ const ChaptersContainer: React.FC<ChaptersContainerProps> = ({
   <Container>
     {chapters &&
       chapters.map(chapter => (
-        <Link href={`${shortName}/${chapter}`} key={chapter}>
+        <Link href={`/ara/${shortName}/${chapter}`} key={chapter}>
           <a>{chapter}</a>
         </Link>
       ))}
