@@ -1,5 +1,5 @@
 import React from 'react';
-import { useChapter } from '../../../context/useChapter';
+
 import getBookInfo from '../../../services/books';
 import { BoxTitle } from '../BoxTitle';
 import ChaptersContainer from '../ChaptersContainer';
@@ -12,7 +12,6 @@ type ChaptersAsideProps = {
 
 const ChaptersAside: React.FC<ChaptersAsideProps> = ({ book }) => {
   const data = getBookInfo(book);
-  console.log(data, book);
   return (
     <Container>
       <BoxTitle>Capítulos</BoxTitle>

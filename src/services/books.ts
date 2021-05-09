@@ -97,3 +97,7 @@ const result = books.map(book => ({
 export default function getBookInfo(book: string): BooksObject {
   return result.filter(b => b.shortName === book)[0];
 }
+
+export function getBooks(): BooksObject[] {
+  return result;
+}

@@ -11,7 +11,8 @@ export default createGlobalStyle`
 
   body, input, button {
     font-family: ${props => props.theme.fontFamily.normal};
-    color: ${props => props.theme.colors.grey[900]}
+    color: ${props => props.theme.colors.grey[900]};
+    overflow-x: hidden;
   }
 
   button {

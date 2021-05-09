@@ -5,7 +5,7 @@ export const Container = styled.article`
   justify-content: center;
   flex-direction: column;
 
-  height: calc(100vh - 240px);
+  height: 60vh;
   width: 100%;
   max-width: 400px;
 
