@@ -15,6 +15,10 @@ const theme: DefaultTheme = {
       800: '#222222',
       900: '#161616',
     },
+    purple: {
+      500: '#8257e6',
+      900: '#572db8',
+    },
   },
   fontSize: {
     small: '12px',

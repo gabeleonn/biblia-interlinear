@@ -32,7 +32,7 @@ const ChapterWrapper: React.FC<Chapter> = ({ data }) => (
     </Container>
     <aside>
       <StrongAside />
-      <ChaptersAside />
+      <ChaptersAside book={data.shortName} />
     </aside>
   </Wrapper>
 );

@@ -1,16 +1,24 @@
 import React from 'react';
 import { useChapter } from '../../../context/useChapter';
+import getBookInfo from '../../../services/books';
 import { BoxTitle } from '../BoxTitle';
-// import { generateKey } from '../../../services';
+import ChaptersContainer from '../ChaptersContainer';
 
 import { Container } from './styles';
 
-const ChaptersAside: React.FC = () => {
-  const { data } = useChapter();
+type ChaptersAsideProps = {
+  book: string;
+};
+
+const ChaptersAside: React.FC<ChaptersAsideProps> = ({ book }) => {
+  const data = getBookInfo(book);
+  console.log(data, book);
   return (
     <Container>
       <BoxTitle>Capítulos</BoxTitle>
-      {data && <p> {data.chapters} </p>}
+      {book && data && (
+        <ChaptersContainer chapters={data.chapters} shortName={book} />
+      )}
     </Container>
   );
 };

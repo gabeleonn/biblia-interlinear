@@ -17,7 +17,7 @@ const ChapterPage: React.FC = () => {
 
   return (
     <>
-      <ChapterWrapper data={data} />
+      <ChapterWrapper data={{ ...data, shortName: book }} />
     </>
   );
 };

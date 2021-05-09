@@ -21,6 +21,10 @@ export default createGlobalStyle`
   a {
     cursor: pointer;
     text-decoration: none;
-    color: inherit;
+    color: ${props => props.theme.colors.purple[500]};
+
+    &:hover {
+      color: ${props => props.theme.colors.purple[900]};
+    }
   }
 `;

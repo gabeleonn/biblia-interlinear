@@ -16,6 +16,7 @@ export type Chapter = {
     shortVersion: string;
     copyright: string;
     book: string;
+    shortName: string;
     bookLink: string;
     chapter: number;
     chapters: number;
@@ -28,6 +29,7 @@ export type ChapterData = {
   shortVersion: string;
   copyright: string;
   book: string;
+  shortName: string;
   bookLink: string;
   chapter: number;
   chapters: number;
@@ -52,7 +54,7 @@ const ChapterProvider: React.FC = ({ children }) => {
         `https://biblia-interlinear.herokuapp.com/ara/${book}/${chapter}`,
       );
       const json = await res.json();
-      setData(json);
+      setData({ ...json, shortName: chapter });
     },
     [setData],
   );

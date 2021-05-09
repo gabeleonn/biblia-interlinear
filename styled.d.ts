@@ -19,6 +19,10 @@ declare module 'styled-components' {
         800: string;
         900: string;
       };
+      purple: {
+        500: string;
+        900: string;
+      };
     };
     fontSize: {
       small: string;
