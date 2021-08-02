@@ -14,7 +14,7 @@ export const FooterSection = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
 
-  max-height: calc(468px - 50px);
+  max-height: calc(500px - 40px);
   height: 100%;
 
   &:nth-child(1) {
