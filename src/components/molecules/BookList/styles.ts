@@ -5,7 +5,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: flex-start;
 
-  padding: 40px;
+  padding: 30px;
   height: 500px;
 `;
 
@@ -14,7 +14,7 @@ export const FooterSection = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
 
-  max-height: calc(500px - 40px);
+  max-height: calc(500px - 30px);
   height: 100%;
 
   &:nth-child(1) {
