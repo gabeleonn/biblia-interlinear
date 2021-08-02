@@ -1,12 +1,12 @@
 import React from 'react';
 
 import BookList from '../../molecules/BookList';
-import { Container } from './styles';
+import { Footer as StyledFooter } from './styles';
 
 const Footer: React.FC = () => (
-  <Container>
+  <StyledFooter>
     <BookList />
-  </Container>
+  </StyledFooter>
 );
 
 export default Footer;

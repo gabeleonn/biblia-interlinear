@@ -1,14 +1,15 @@
 import styled from 'styled-components';
+import theme from '../../../styles/theme';
 
 export const Container = styled.button`
-  font-family: ${props => props.theme.fontFamily.text};
-  font-size: ${props => props.theme.fontSize.normal};
+  font-family: ${() => theme.fontFamily.text};
+  font-size: ${() => theme.fontSize.normal};
   margin-right: 5px;
 
   background: transparent;
   position: relative;
 
   &:hover {
-    background: ${props => props.theme.colors.grey[100]};
+    background: ${() => theme.colors.grey[100]};
   }
 `;

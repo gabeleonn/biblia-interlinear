@@ -1,7 +1,4 @@
-import React from 'react';
-import { DefaultTheme, ThemeProvider } from 'styled-components';
-
-const theme: DefaultTheme = {
+const theme = {
   colors: {
     grey: {
       50: '#E1E1E1',
@@ -16,8 +13,8 @@ const theme: DefaultTheme = {
       900: '#161616',
     },
     purple: {
-      500: '#8257e6',
-      900: '#572db8',
+      500: '#777EEE',
+      900: '#6066c0',
     },
   },
   fontSize: {
@@ -31,7 +28,4 @@ const theme: DefaultTheme = {
   },
 };
 
-const Theme: React.FC = ({ children }) => (
-  <ThemeProvider theme={theme}>{children}</ThemeProvider>
-);
-export default Theme;
+export default theme as typeof theme;

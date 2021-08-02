@@ -98,6 +98,44 @@ export default function getBookInfo(book: string): BooksObject {
   return result.filter(b => b.shortName === book)[0];
 }
 
+const handleSections = (idx: number): number => {
+  if (idx < 5) {
+    return 0;
+  }
+  if (idx >= 5 && idx < 17) {
+    return 1;
+  }
+  if (idx >= 17 && idx < 39) {
+    return 2;
+  }
+  if (idx >= 39 && idx < 67) {
+    return 3;
+  }
+  return null;
+};
+
+export const handleSectionTitle = (idx: number): string => {
+  const sections = ['Torah', 'Profetas', 'Poéticos', 'Novo Testamento'];
+  return sections[idx];
+};
+
 export function getBooks(): BooksObject[] {
   return result;
+}
+
+type BooksBySection = [
+  BooksObject[],
+  BooksObject[],
+  BooksObject[],
+  BooksObject[],
+];
+
+export function getBooksWithSections(): BooksBySection {
+  const booksBySection: BooksBySection = [[], [], [], []];
+  getBooks().forEach((book, idx) => {
+    const section = handleSections(idx);
+    booksBySection[section].push(book);
+  });
+
+  return booksBySection;
 }

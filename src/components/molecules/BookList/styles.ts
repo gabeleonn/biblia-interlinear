@@ -2,8 +2,41 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
 
-  padding: 50px;
+  padding: 40px;
+  height: 500px;
+`;
+
+export const FooterSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  max-height: calc(468px - 50px);
+  height: 100%;
+
+  &:nth-child(1) {
+    width: 15%;
+  }
+
+  &:nth-child(2) {
+    width: 15%;
+  }
+
+  &:nth-child(3) {
+    width: 30%;
+  }
+
+  &:nth-child(4) {
+    width: 40%;
+  }
+`;
+
+export const FooterSectionTitle = styled.h3`
+  font-weight: bold;
+  font-size: 24px;
+
+  margin-bottom: 20px;
 `;

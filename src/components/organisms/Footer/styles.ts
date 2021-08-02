@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import theme from '../../../styles/theme';
 
-export const Container = styled.main`
+export const Footer = styled.footer`
   width: 100%;
   height: fit-content;
 
-  background: ${props => props.theme.colors.grey[900]};
-  color: ${props => props.theme.colors.grey[50]};
+  background: ${theme.colors.grey[900]};
+  color: ${theme.colors.grey[50]};
 `;

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import theme from './theme';
 
 export default createGlobalStyle`
   * {
@@ -10,8 +11,8 @@ export default createGlobalStyle`
   }
 
   body, input, button {
-    font-family: ${props => props.theme.fontFamily.normal};
-    color: ${props => props.theme.colors.grey[900]};
+    font-family: ${() => theme.fontFamily.normal};
+    color: ${() => theme.colors.grey[900]};
     overflow-x: hidden;
   }
 
@@ -22,10 +23,10 @@ export default createGlobalStyle`
   a {
     cursor: pointer;
     text-decoration: none;
-    color: ${props => props.theme.colors.purple[500]};
+    color: ${() => theme.colors.purple[500]};
 
     &:hover {
-      color: ${props => props.theme.colors.purple[900]};
+      color: ${() => theme.colors.purple[900]};
     }
   }
 `;

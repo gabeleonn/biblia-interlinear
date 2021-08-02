@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import theme from '../../../styles/theme';
+
 type ContainerProps = {
   action: string;
 };
@@ -12,8 +14,8 @@ export const Container = styled.a<ContainerProps>`
   padding: 8px;
   border-radius: 100px;
 
-  background: ${props => props.theme.colors.grey[900]};
-  color: ${props => props.theme.colors.grey[50]};
+  background: ${() => theme.colors.grey[900]};
+  color: ${() => theme.colors.grey[50]};
 
   position: fixed;
   z-index: 10;
