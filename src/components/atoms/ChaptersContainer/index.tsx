@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import Link from 'next/link';
+
+import { Link } from '../Link';
 
 import { Container } from './styles';
 
@@ -16,9 +17,12 @@ const ChaptersContainer: React.FC<ChaptersContainerProps> = ({
   <Container>
     {chapters &&
       chapters.map(chapter => (
-        <Link href={`/ara/${shortName}/${chapter}`} key={chapter}>
-          <a>{chapter}</a>
-        </Link>
+        <Link
+          key={chapter}
+          link={`${shortName}/${chapter}`}
+          order={chapter}
+          text={chapter}
+        />
       ))}
   </Container>
 );

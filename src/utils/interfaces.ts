@@ -1,5 +1,5 @@
 export interface ILink {
   link: string;
-  order: number;
-  text: string;
+  order: string | number;
+  text: string | number;
 }
