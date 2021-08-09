@@ -5,16 +5,14 @@ import { Container, Verse } from './styles';
 import VerseNumber from '../../atoms/VerseNumber';
 import VerseText from '../../molecules/VerseText';
 import { generateKey } from '../../../services';
-import { Verse as VerseType } from '../../../context/useChapter';
+import { Chapter } from '../../../context/useChapter';
+import ChapterControl from '../../molecules/ChapterControl';
 
-type VerseListProps = {
-  verses: VerseType[];
-};
-
-const VerseList: React.FC<VerseListProps> = ({ verses }) => (
+const VerseList: React.FC<Chapter> = ({ data }) => (
   <Container>
-    {verses &&
-      verses.map(verse => (
+    <ChapterControl data={data} />
+    {data.verses &&
+      data.verses.map(verse => (
         <Verse key={generateKey()}>
           <VerseNumber>{verse.verse}</VerseNumber>
           <VerseText words={verse.text} />

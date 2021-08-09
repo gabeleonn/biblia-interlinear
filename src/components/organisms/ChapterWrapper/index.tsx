@@ -24,8 +24,8 @@ const ChapterWrapper: React.FC<Chapter> = ({ data }) => (
             chapter={data.chapter}
             padding="0 0 20px 0"
           />
-          <VerseList verses={data.verses} />
-          <ChapterControl data={data} />
+          <VerseList data={data} />
+
           <Copyright>{data.copyright}</Copyright>
         </>
       )}

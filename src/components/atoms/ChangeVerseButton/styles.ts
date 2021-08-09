@@ -17,31 +17,21 @@ export const Container = styled.a<ContainerProps>`
   background: ${() => theme.colors.grey[900]};
   color: ${() => theme.colors.grey[50]};
 
-  position: fixed;
+  position: sticky;
   z-index: 10;
   top: 60%;
-  ${props =>
-    props.action === 'next'
+
+  width: 45px;
+  height: 45px;
+
+  ${({ action }) =>
+    action === 'next'
       ? css`
-          right: 35%;
-
-          @media (max-width: 1100px) {
-            right: 10%;
-          }
-
-          @media (max-width: 900px) {
-            right: 3%;
-          }
+          float: right;
+          margin-right: -80px;
         `
       : css`
-          left: 3.5%;
-
-          @media (max-width: 1100px) {
-            left: 10%;
-          }
-
-          @media (max-width: 900px) {
-            left: 3%;
-          }
-        `}
+          float: left;
+          margin-left: -80px;
+        `};
 `;
