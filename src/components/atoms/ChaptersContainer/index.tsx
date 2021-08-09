@@ -8,19 +8,21 @@ import { Container } from './styles';
 type ChaptersContainerProps = {
   chapters: number[];
   shortName: string;
+  longName: string;
 };
 
 const ChaptersContainer: React.FC<ChaptersContainerProps> = ({
   chapters,
   shortName,
+  longName,
 }) => (
   <Container>
     {chapters &&
       chapters.map(chapter => (
         <Link
           key={chapter}
-          link={`${shortName}/${chapter}`}
-          order={chapter}
+          link={`/ara/${shortName}/${chapter}`}
+          ariaLabel={`Ir para livro ${longName} capítulo ${chapter}`}
           text={chapter}
         />
       ))}

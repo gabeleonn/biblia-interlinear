@@ -1,5 +1,5 @@
 export interface ILink {
   link: string;
-  order: string | number;
+  ariaLabel: string;
   text: string | number;
 }

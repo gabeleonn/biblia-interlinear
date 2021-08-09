@@ -1,37 +1,57 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+interface IFooterSection {
+  isMobile: boolean;
+}
+
+export const Container = styled.div<IFooterSection>`
   display: flex;
   align-items: center;
   justify-content: flex-start;
 
   padding: 30px;
-  height: 500px;
+
+  height: ${({ isMobile }) => (isMobile ? 'fit-content' : '500px')};
+  flex-direction: ${({ isMobile }) => (isMobile ? 'column' : 'row')};
 `;
 
-export const FooterSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+export const FooterSection = styled.div<IFooterSection>`
+  ${({ isMobile }) =>
+    isMobile
+      ? css`
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          margin-left: 40px;
 
-  max-height: calc(500px - 30px);
-  height: 100%;
+          &:not(:last-child) {
+            margin-bottom: 20px;
+          }
+        `
+      : css`
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
 
-  &:nth-child(1) {
-    width: 15%;
-  }
+          max-height: calc(500px - 30px);
+          height: 100%;
 
-  &:nth-child(2) {
-    width: 15%;
-  }
+          &:nth-child(1) {
+            width: 15%;
+          }
 
-  &:nth-child(3) {
-    width: 30%;
-  }
+          &:nth-child(2) {
+            width: 15%;
+          }
 
-  &:nth-child(4) {
-    width: 40%;
-  }
+          &:nth-child(3) {
+            width: 30%;
+          }
+
+          &:nth-child(4) {
+            width: 40%;
+          }
+        `}
 `;
 
 export const FooterSectionTitle = styled.h3`

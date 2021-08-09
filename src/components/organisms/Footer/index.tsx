@@ -1,12 +1,45 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import { useRouter } from 'next/router';
+import { isMobile } from 'react-device-detect';
 
 import BookList from '../../molecules/BookList';
-import { Footer as StyledFooter } from './styles';
+import { Link } from '../../atoms/Link';
+import { Footer as StyledFooter, MobileNav } from './styles';
 
-const Footer: React.FC = () => (
-  <StyledFooter>
-    <BookList />
-  </StyledFooter>
-);
+const mobileNavLinks = [
+  { text: 'Todos os livros', path: '/', ariaLabel: 'Ver todos os livros' },
+  {
+    text: 'Sobre',
+    path: 'https://github.com/gabeleonn/biblia-interlinear',
+    ariaLabel: 'Saber sobre o projeto',
+  },
+];
+
+const Footer: React.FC = () => {
+  const { pathname } = useRouter();
+
+  return (
+    <StyledFooter>
+      {isMobile || pathname === '/' ? (
+        <MobileNav>
+          <ul>
+            {mobileNavLinks.map(item => (
+              <li key={item.text}>
+                <Link
+                  text={item.text}
+                  ariaLabel={item.ariaLabel}
+                  link={item.path}
+                />
+              </li>
+            ))}
+          </ul>
+        </MobileNav>
+      ) : (
+        <BookList />
+      )}
+    </StyledFooter>
+  );
+};
 
 export default Footer;
