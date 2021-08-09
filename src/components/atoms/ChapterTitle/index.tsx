@@ -13,7 +13,7 @@ const ChapterTitle: React.FC<ChapterTitleProps> = ({
   padding = '0',
 }) => (
   <Container padding={padding}>
-    <h1>{`${book} ${chapter}`}</h1>
+    {book && chapter ? <h1>{`${book} ${chapter}`}</h1> : <p>Carregando...</p>}
   </Container>
 );
 
