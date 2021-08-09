@@ -18,6 +18,7 @@ const ChapterInfo: React.FC<ChapterInfoProps> = ({ book }) => (
       <>
         <BoxTitle>{book.longName}</BoxTitle>
         <ChaptersContainer
+          longName={book.longName}
           chapters={book.chapters}
           shortName={book.shortName}
         />

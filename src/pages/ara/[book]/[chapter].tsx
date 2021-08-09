@@ -1,23 +1,15 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React, { useEffect } from 'react';
-import { GetStaticPaths, GetStaticPropsResult, NextPageContext } from 'next';
+import React from 'react';
+import { GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 
-import { useChapter } from '../../../context/useChapter';
 import ChapterWrapper from '../../../components/organisms/ChapterWrapper';
 import { IChapterPage } from '../../../utils/interfaces';
 
-const ChapterPage: React.FC = () => {
+const ChapterPage: React.FC<IChapterPage> = ({ data }) => {
   const router = useRouter();
-  const [book, chapter] = router.asPath.replace('/ara/', '').split('/');
-  const { data, getData } = useChapter();
-
-  useEffect(() => {
-    if (book !== '[book]' && chapter !== '[chapter]') {
-      getData(book, chapter);
-    }
-  }, [book, chapter, getData]);
+  const [book] = router.asPath.replace('/ara/', '').split('/');
 
   return (
     <>
