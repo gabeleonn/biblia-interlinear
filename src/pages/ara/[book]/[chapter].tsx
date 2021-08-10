@@ -20,7 +20,7 @@ const ChapterPage: React.FC<IChapterPage> = ({ data }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const books = await (
-    await fetch('https://biblia-interlinear.herokuapp.com/paths')
+    await fetch('https://biblia-online-api.azurewebsites.net/paths')
   ).json();
 
   const paths = [];
@@ -39,7 +39,7 @@ export const getStaticProps = async context => {
   const { book, chapter } = context.params;
 
   const raw = await fetch(
-    `https://biblia-interlinear.herokuapp.com/ara/${book}/${chapter}`,
+    `https://biblia-online-api.azurewebsites.net/ara/${book}/${chapter}`,
   );
 
   const data = await raw.json();
