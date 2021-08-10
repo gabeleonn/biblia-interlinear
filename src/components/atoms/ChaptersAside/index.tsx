@@ -4,7 +4,7 @@ import getBookInfo from '../../../services/books';
 import { BoxTitle } from '../BoxTitle';
 import ChaptersContainer from '../ChaptersContainer';
 
-import { Container } from './styles';
+import { ChapterContainer } from './styles';
 
 type ChaptersAsideProps = {
   book: string;
@@ -14,7 +14,7 @@ type ChaptersAsideProps = {
 const ChaptersAside: React.FC<ChaptersAsideProps> = ({ book, longName }) => {
   const data = getBookInfo(book);
   return (
-    <Container>
+    <ChapterContainer>
       <BoxTitle>Capítulos</BoxTitle>
       {book && data && (
         <ChaptersContainer
@@ -23,7 +23,7 @@ const ChaptersAside: React.FC<ChaptersAsideProps> = ({ book, longName }) => {
           shortName={book}
         />
       )}
-    </Container>
+    </ChapterContainer>
   );
 };
 

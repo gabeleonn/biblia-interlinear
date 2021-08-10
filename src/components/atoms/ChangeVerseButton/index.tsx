@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
-import { Container } from './styles';
+import { ChangeButton } from './styles';
 
 type ChangeVerseButtonProps = {
   book: string;
@@ -33,7 +33,7 @@ const ChangeVerseButton: React.FC<ChangeVerseButtonProps> = ({
 
   return (
     <Link href={`/ara/${book}/${newChapter}`}>
-      <Container action={action}>{icons[action]}</Container>
+      <ChangeButton action={action}>{icons[action]}</ChangeButton>
     </Link>
   );
 };

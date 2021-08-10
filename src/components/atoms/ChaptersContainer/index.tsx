@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Link } from '../Link';
 
-import { Container } from './styles';
+import { AllChapters } from './styles';
 
 type ChaptersContainerProps = {
   chapters: number[];
@@ -16,7 +16,7 @@ const ChaptersContainer: React.FC<ChaptersContainerProps> = ({
   shortName,
   longName,
 }) => (
-  <Container>
+  <AllChapters>
     {chapters &&
       chapters.map(chapter => (
         <Link
@@ -26,7 +26,7 @@ const ChaptersContainer: React.FC<ChaptersContainerProps> = ({
           text={chapter}
         />
       ))}
-  </Container>
+  </AllChapters>
 );
 
 export default ChaptersContainer;

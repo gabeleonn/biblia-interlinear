@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { isMobile } from 'react-device-detect';
 
 import {
   getBooksWithSections,
@@ -8,15 +7,15 @@ import {
 } from '../../../services/books';
 import { Link } from '../../atoms/Link';
 
-import { Container, FooterSection, FooterSectionTitle } from './styles';
+import { FooterWrapper, FooterSection, FooterSectionTitle } from './styles';
 
 const BookList: React.FC = () => {
   const books = getBooksWithSections();
 
   return (
-    <Container isMobile={isMobile}>
+    <FooterWrapper>
       {books.map((section, idx) => (
-        <FooterSection key={`cp-${idx}`} isMobile={isMobile}>
+        <FooterSection key={`cp-${idx}`}>
           <FooterSectionTitle>{handleSectionTitle(idx)}</FooterSectionTitle>
           {section &&
             section.map(book => (
@@ -29,7 +28,7 @@ const BookList: React.FC = () => {
             ))}
         </FooterSection>
       ))}
-    </Container>
+    </FooterWrapper>
   );
 };
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.article`
+export const ChapterWrapperArticle = styled.article`
   max-width: 700px;
   width: 100%;
   position: relative;
@@ -25,6 +25,7 @@ export const Container = styled.article`
 
   @media (max-width: 700px) {
     max-width: 400px;
+    margin-bottom: 60px;
   }
 
   @media (max-width: 600px) {

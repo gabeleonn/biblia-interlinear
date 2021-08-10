@@ -3,22 +3,23 @@ import React from 'react';
 import Head from 'next/head';
 import ChapterTitle from '../../atoms/ChapterTitle';
 import { Copyright } from '../../atoms/Copyright';
-import { Container, Wrapper } from './styles';
+import { ChapterWrapperArticle, Wrapper } from './styles';
 
 import VerseList from '../VerseList';
-import ChapterControl from '../../molecules/ChapterControl';
 import StrongAside from '../../atoms/StrongAside';
 import ChaptersAside from '../../atoms/ChaptersAside';
 import { Chapter } from '../../../context/useChapter';
+import ChapterControl from '../../molecules/ChapterControl';
 
 const ChapterWrapper: React.FC<Chapter> = ({ data }) => (
   <Wrapper>
-    <Container>
+    <ChapterWrapperArticle>
       {data && (
         <>
           <Head>
             <title>{`${data.book} ${data.chapter} - Bíblia Online`}</title>
           </Head>
+          <ChapterControl data={data} />
           <ChapterTitle
             book={data.book}
             chapter={data.chapter}
@@ -29,7 +30,7 @@ const ChapterWrapper: React.FC<Chapter> = ({ data }) => (
           <Copyright>{data.copyright}</Copyright>
         </>
       )}
-    </Container>
+    </ChapterWrapperArticle>
     <aside>
       <StrongAside />
       <ChaptersAside book={data.shortName} longName={data.book} />

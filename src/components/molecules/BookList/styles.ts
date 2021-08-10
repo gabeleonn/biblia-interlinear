@@ -1,57 +1,59 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-interface IFooterSection {
-  isMobile: boolean;
-}
-
-export const Container = styled.div<IFooterSection>`
+export const FooterWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
 
   padding: 30px;
+  height: 500px;
+  flex-direction: row;
 
-  height: ${({ isMobile }) => (isMobile ? 'fit-content' : '500px')};
-  flex-direction: ${({ isMobile }) => (isMobile ? 'column' : 'row')};
+  @media (max-width: 768px) {
+    height: fit-content;
+    flex-direction: column;
+  }
 `;
 
-export const FooterSection = styled.div<IFooterSection>`
-  ${({ isMobile }) =>
-    isMobile
-      ? css`
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          margin-left: 40px;
+export const FooterSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 
-          &:not(:last-child) {
-            margin-bottom: 20px;
-          }
-        `
-      : css`
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
+  max-height: calc(500px - 30px);
+  height: 100%;
 
-          max-height: calc(500px - 30px);
-          height: 100%;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-left: 40px;
+    flex-wrap: nowrap;
+    max-height: fit-content;
 
-          &:nth-child(1) {
-            width: 15%;
-          }
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
 
-          &:nth-child(2) {
-            width: 15%;
-          }
+  &:nth-child(1),
+  &:nth-child(2) {
+    width: 15%;
 
-          &:nth-child(3) {
-            width: 30%;
-          }
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
 
-          &:nth-child(4) {
-            width: 40%;
-          }
-        `}
+  &:nth-child(3) {
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  &:nth-child(4) {
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
 `;
 
 export const FooterSectionTitle = styled.h3`

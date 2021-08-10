@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { BooksObject } from '../../../services/books';
 import { BoxTitle } from '../../atoms/BoxTitle';
 
-import { Container } from './styles';
+import { ChapterInfoContainer } from './styles';
 import ChaptersContainer from '../../atoms/ChaptersContainer';
 
 type ChapterInfoProps = {
@@ -13,7 +13,7 @@ type ChapterInfoProps = {
 };
 
 const ChapterInfo: React.FC<ChapterInfoProps> = ({ book }) => (
-  <Container>
+  <ChapterInfoContainer>
     {book && (
       <>
         <BoxTitle>{book.longName}</BoxTitle>
@@ -24,7 +24,7 @@ const ChapterInfo: React.FC<ChapterInfoProps> = ({ book }) => (
         />
       </>
     )}
-  </Container>
+  </ChapterInfoContainer>
 );
 
 export default ChapterInfo;
