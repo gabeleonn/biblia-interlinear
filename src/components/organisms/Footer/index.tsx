@@ -8,10 +8,16 @@ import { Link } from '../../atoms/Link';
 import { Footer as StyledFooter, MobileNav } from './styles';
 
 const mobileNavLinks = [
-  { text: 'Todos os livros', path: '/', ariaLabel: 'Ver todos os livros' },
+  {
+    text: 'Todos os livros',
+    path: '/',
+    ariaLabel: 'Ver todos os livros',
+    isExternal: false,
+  },
   {
     text: 'Sobre',
     path: 'https://github.com/gabeleonn/biblia-interlinear',
+    isExternal: true,
     ariaLabel: 'Saber sobre o projeto',
   },
 ];
@@ -30,6 +36,7 @@ const Footer: React.FC = () => {
                   text={item.text}
                   ariaLabel={item.ariaLabel}
                   link={item.path}
+                  isExternal={item.isExternal}
                 />
               </li>
             ))}

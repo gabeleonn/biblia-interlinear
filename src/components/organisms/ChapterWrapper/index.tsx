@@ -8,7 +8,7 @@ import { ChapterWrapperArticle, Wrapper } from './styles';
 import VerseList from '../VerseList';
 import StrongAside from '../../atoms/StrongAside';
 import ChaptersAside from '../../atoms/ChaptersAside';
-import { Chapter } from '../../../context/useChapter';
+import { Chapter } from '../../../utils/interfaces';
 import ChapterControl from '../../molecules/ChapterControl';
 
 const ChapterWrapper: React.FC<Chapter> = ({ data }) => (

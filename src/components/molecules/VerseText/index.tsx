@@ -6,7 +6,7 @@ import VerseWord from '../../atoms/VerseWord';
 import { generateKey } from '../../../services';
 
 import { useStrongs } from '../../../context/useStrongs';
-import { Word } from '../../../context/useChapter';
+import { Word } from '../../../utils/interfaces';
 
 type VerseTextProps = {
   words: Word[];

@@ -23,17 +23,6 @@ export const ChangeButton = styled.a<ContainerProps>`
   color: ${() => theme.colors.grey[50]};
   transition: all 0.2s ease-in-out;
 
-  &:hover {
-    background: ${() => theme.colors.purple[900]};
-    color: ${() => theme.colors.grey[50]};
-    transition: all 0.2s ease-in-out;
-  }
-
-  @media (max-width: 768px) {
-    margin: 0 -10px 0 -10px;
-    top: 90%;
-  }
-
   ${({ action }) =>
     action === 'next'
       ? css`
@@ -44,4 +33,20 @@ export const ChangeButton = styled.a<ContainerProps>`
           float: left;
           margin-left: -80px;
         `};
+
+  &:hover {
+    background: ${() => theme.colors.purple[900]};
+    color: ${() => theme.colors.grey[50]};
+    transition: all 0.2s ease-in-out;
+  }
+
+  @media (max-width: 800px) {
+    margin: 0 -50px 0 -50px;
+    top: 90%;
+  }
+
+  @media (max-width: 700px) {
+    margin: 0 -10px 0 -10px;
+    top: 90%;
+  }
 `;

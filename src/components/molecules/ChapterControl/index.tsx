@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ChangeVerseButton from '../../atoms/ChangeVerseButton';
-import { Chapter } from '../../../context/useChapter';
+import { Chapter } from '../../../utils/interfaces';
 
 const ChapterControl: React.FC<Chapter> = ({ data }) => (
   <>

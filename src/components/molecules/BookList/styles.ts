@@ -23,17 +23,6 @@ export const FooterSection = styled.div`
   max-height: calc(500px - 30px);
   height: 100%;
 
-  @media (max-width: 768px) {
-    width: 100%;
-    margin-left: 40px;
-    flex-wrap: nowrap;
-    max-height: fit-content;
-
-    &:not(:last-child) {
-      margin-bottom: 20px;
-    }
-  }
-
   &:nth-child(1),
   &:nth-child(2) {
     width: 15%;
@@ -44,14 +33,29 @@ export const FooterSection = styled.div`
   }
 
   &:nth-child(3) {
+    width: 30%;
+
     @media (max-width: 768px) {
       width: 100%;
     }
   }
 
   &:nth-child(4) {
+    width: 45%;
+
     @media (max-width: 768px) {
       width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-left: 40px;
+    flex-wrap: nowrap;
+    max-height: fit-content;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
     }
   }
 `;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Word } from '../../../context/useChapter';
+import { Word } from '../../../utils/interfaces';
 
 import { Container } from './styles';
 
